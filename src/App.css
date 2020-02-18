@@ -1,4 +1,46 @@
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 {
+  font-family: "Consolas","Microsoft JhengHei","Apple LiGothic Medium,Microsoft YaHei","微软雅黑","Arial",sans-serif;
+  font-weight: 600;  
+}
 .App {
+  background: #efefef;
+}
+
+[role="button"], /* explicit button semantics */
+a[href="#"], a[href="#0"] /* Common patterns for the <a> element used as a button */
+{
+  cursor: pointer;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.content-area {
+  background: #fff;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +77,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
