@@ -35,6 +35,11 @@ a[href="#"], a[href="#0"] /* Common patterns for the <a> element used as a butto
 .content-area {
   background: #fff;
 }
+label {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

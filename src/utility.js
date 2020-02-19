@@ -24,8 +24,31 @@ export const parseToYearAndMonth = (str) => {
 
 export const isValidDate = (dateString) => {
     const regEx = /^\d{4}-\d{2}-\d{2}$/;
-    if(!dateString.match(regEx)) return false;  // Invalid format
+    if (!dateString.match(regEx)) return false;  // Invalid format
     const d = new Date(dateString);
-    if(Number.isNaN(d.getTime())) return false; // Invalid date
-    return d.toISOString().slice(0,10) === dateString;
+    if (Number.isNaN(d.getTime())) return false; // Invalid date
+    return d.toISOString().slice(0, 10) === dateString;
+}
+
+export const flatternArr = (arr) => {
+    return arr.reduce((map, item) => {
+        map[item.id] = item
+        return map
+    },{})
+}
+export const Colors = {
+    blue: '#347eff',
+    deepBlue: '#61dafb',
+    green: '#28a745',
+    red: '#dc3545',
+    gray: '#555',
+    lightGray: '#efefef',
+    white: '#fff',
+}
+//生成id
+export const ID = () => {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
   }

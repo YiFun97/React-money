@@ -44,11 +44,11 @@ class PriceForm extends Component {
                     onFormSubmit({ title, price, date }, editMode)
                 }
             }
-        } else{
+        } else {
             this.setState({
                 validatePass: false,
                 errorMessage: '请输入所有必选项'
-              })
+            })
         }
         event.preventDefault()
     }
@@ -56,7 +56,8 @@ class PriceForm extends Component {
         const { title, price, date } = this.props.item
         return (
             <form onSubmit={(event) => { this.submitForm(event) }} noValidate>
-                <div className="form-group row">
+                <div className="form-group row align-items-center no-gutters">
+                    <div className="col-sm-2"></div>
                     <label className="col-sm-1" >标题：</label>
                     <div className="col-sm-6">
                         <input
@@ -67,7 +68,8 @@ class PriceForm extends Component {
                         />
                     </div>
                 </div>
-                <div className="form-group row">
+                <div className="form-group row align-items-center no-gutters">
+                    <div className="col-sm-2"></div>
                     <label className="col-sm-1" >价格：</label>
                     <div className="col-sm-6">
                         <input
@@ -78,7 +80,8 @@ class PriceForm extends Component {
                         />
                     </div>
                 </div>
-                <div className="form-group row">
+                <div className="form-group row align-items-center no-gutters">
+                    <div className="col-sm-2"></div>
                     <label htmlFor="date" className="col-sm-1">日期：</label>
                     <div className="col-sm-6">
                         <input
@@ -89,8 +92,11 @@ class PriceForm extends Component {
                         />
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary mr-3">提交</button>
-                <button className="btn btn-secondary" onClick={this.props.onCancelSubmit}>取消</button>
+                <div className="row no-gutters">
+                <div className="col-sm-2"></div>
+                <button type="submit" className="btn btn-primary mr-3  ">提交</button>
+                <button className="btn btn-secondary " onClick={this.props.onCancelSubmit}>取消</button>
+                </div>
                 {
                     !this.state.validatePass &&
                     <div className="alert alert-danger mt-5" role="alert">
