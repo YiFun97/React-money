@@ -4,7 +4,7 @@ import Ionicon from 'react-ionicons'
 
 const CreateBtn = ({ onClick }) => (
   <button
-    className="btn btn-primary btn-block d-flex justify-content-center align-items-center" 
+    className="btn btn-pur btn-block d-flex justify-content-center align-items-center" 
     onClick={(e) => {onClick()}}
   >
     <Ionicon

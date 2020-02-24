@@ -12,8 +12,8 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
                     >
                         <span className="col-1 " >
                             <Ionicon className="rounded-circle"
-                                fontSize="35px" style={{ backgroundColor: '#007bff', padding: '5px' }}
-                                color={'#fff'}
+                                fontSize="35px"
+                                color={'#788895'}
                                 icon={item.category.iconName}
                             />
                         </span>
@@ -23,26 +23,30 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
                             {item.price}元
                         </span>
                         <span className="col-2">{item.date}</span>
-                        <a className="col-1"
-                            role="button"
-                            onClick={(event) => { event.preventDefault(); onModifyItem(item) }}
-                        >
-                            <Ionicon className="rounded-circle"
-                                fontSize="30px" style={{ backgroundColor: '#28a745', padding: '5px' }}
-                                color={'#fff'}
-                                icon='ios-create-outline'
-                            />
-                        </a>
-                        <a className="col-1"
-                            role="button"
-                            onClick={(event) => { event.preventDefault(); onDeleteItem(item) }}
-                        >
-                            <Ionicon className="rounded-circle"
-                                fontSize="30px" style={{ backgroundColor: '#dc3545', padding: '5px' }}
-                                color={'#fff'}
-                                icon='ios-close'
-                            />
-                        </a>
+                        <div className="col-1">
+                            <a
+                                role="button"
+                                onClick={(event) => { event.preventDefault(); onModifyItem(item) }}
+                            >
+                                <Ionicon className="rounded-circle"
+                                    fontSize="30px"
+                                    color={'#788895'}
+                                    icon='ios-create-outline'
+                                />
+                            </a>
+                        </div>
+                        <div className="col-1">
+                            <a
+                                role="button"
+                                onClick={(event) => { event.preventDefault(); onDeleteItem(item) }}
+                            >
+                                <Ionicon className="rounded-circle"
+                                    fontSize="40px"
+                                    color={'#788895'}
+                                    icon='ios-close'
+                                />
+                            </a>
+                        </div>
                     </li>
                 ))
             }

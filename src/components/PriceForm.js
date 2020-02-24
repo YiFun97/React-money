@@ -94,7 +94,7 @@ class PriceForm extends Component {
                 </div>
                 <div className="row no-gutters">
                 <div className="col-sm-2"></div>
-                <button type="submit" className="btn btn-primary mr-3  ">提交</button>
+                <button type="submit" className="btn btn-purno mr-3  ">提交</button>
                 <button className="btn btn-secondary " onClick={this.props.onCancelSubmit}>取消</button>
                 </div>
                 {

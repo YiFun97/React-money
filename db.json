@@ -153,15 +153,6 @@
       "cid": "11"
     },
     {
-      "title": "收入",
-      "price": 100,
-      "date": "2018-12-05",
-      "monthCategory": "2018-12",
-      "timestamp": 1543968000000,
-      "id": "_znmwyaciy",
-      "cid": "12"
-    },
-    {
       "title": "汽车保养",
       "price": 500,
       "date": "2018-12-09",
@@ -169,15 +160,6 @@
       "timestamp": 1544313600000,
       "id": "_2c96vz8d7",
       "cid": "7"
-    },
-    {
-      "title": "宠物美容",
-      "price": 200,
-      "date": "2018-12-07",
-      "monthCategory": "2018-12",
-      "timestamp": 1544140800000,
-      "id": "_dgqbpp4z8",
-      "cid": "9"
     },
     {
       "title": "购买 iphone XR",
@@ -225,13 +207,82 @@
       "timestamp": 1534723200000
     },
     {
-      "title": "弟弟一起喝酒",
-      "price": 300,
-      "date": "2018-09-20",
+      "title": "给儿子带晚饭",
+      "price": 200,
+      "date": "2020-02-20",
+      "monthCategory": "2020-2",
+      "timestamp": 1582156800000,
+      "id": "_m63ki7xp6",
+      "cid": "2"
+    },
+    {
+      "title": "测试Bug",
+      "price": 200,
+      "date": "2018-09-12",
       "monthCategory": "2018-9",
-      "id": "_jjficd985",
-      "cid": "3",
-      "timestamp": 1534723200000
+      "timestamp": 1536710400000,
+      "id": "_ktrcdqp6h",
+      "cid": "2"
+    },
+    {
+      "title": "买麻辣22",
+      "price": 15,
+      "date": "2020-02-19",
+      "monthCategory": "2020-2",
+      "timestamp": 1582070400000,
+      "id": "_7ljoh7hr5",
+      "cid": "3"
+    },
+    {
+      "title": "买oneplus7T",
+      "price": 3999,
+      "date": "2020-02-22",
+      "monthCategory": "2020-2",
+      "timestamp": 1582329600000,
+      "id": "_zi5kx3d6g",
+      "cid": "4"
+    },
+    {
+      "title": "买东西22",
+      "price": 223,
+      "date": "2020-02-13",
+      "monthCategory": "2020-2",
+      "timestamp": 1581552000000,
+      "id": "_fs9tgc6ae",
+      "cid": "3"
+    },
+    {
+      "title": "工资",
+      "price": 15555,
+      "date": "2020-02-22",
+      "monthCategory": "2020-2",
+      "timestamp": 1582329600000,
+      "id": "_sdixgzbrm",
+      "cid": "10",
+      "category": {
+        "name": "兼职",
+        "iconName": "ios-cash",
+        "id": "11",
+        "type": "income"
+      }
+    },
+    {
+      "title": "狗粮",
+      "price": 55,
+      "date": "2020-02-20",
+      "monthCategory": "2020-2",
+      "timestamp": 1582156800000,
+      "id": "_nlwo58ksh",
+      "cid": "9"
+    },
+    {
+      "title": "买口罩",
+      "price": 55,
+      "date": "2020-02-20",
+      "monthCategory": "2020-2",
+      "timestamp": 1582156800000,
+      "id": "_xvn2r2z09",
+      "cid": "8"
     }
   ]
 }

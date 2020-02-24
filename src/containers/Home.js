@@ -1,7 +1,6 @@
 import React, { Component, Children } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import logo from '../logo.svg';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import PriceList from '../components/PriceList'
 import ViewTab from '../components/ViewTab'
 import { Tabs, Tab } from '../components/Tabs'
@@ -9,10 +8,30 @@ import Ionicon from 'react-ionicons'
 import TotalPrice from '../components/TotalPrice'
 import MonthPicker from '../components/MonthPicker'
 import CreateBtn from '../components/CreateBtn'
-import { LIST_VIEW, CHART_VIEW, TYPE_INCOME, TYPE_OUTCOME, parseToYearAndMonth, padLeft } from '../utility'
+import CustomPieChart from '../components/PieChart'
+import { LIST_VIEW, CHART_VIEW, TYPE_INCOME, TYPE_OUTCOME, parseToYearAndMonth, padLeft, Colors } from '../utility'
 import { AppContext } from '../App'
-import withContext  from '../WithContext'
+import withContext from '../WithContext'
+import Loader from '../components/Loader'
 
+
+const generateChartDataByCategory = (items, type = TYPE_INCOME) => {
+    let categoryMap = {}
+    items.filter(item => item.category.type === type).forEach(item =>{
+        if(categoryMap[item.cid]){
+            categoryMap[item.cid].value += (item.price * 1)
+            categoryMap[item.cid].items.push(item.id)
+        } else {
+            categoryMap[item.cid] = {
+                name: item.category.name,
+                value: item.price * 1,
+                items: [item.id]
+              }
+        }
+    })
+    return Object.keys(categoryMap).map( mapKey =>  ({ ...categoryMap[mapKey] }) 
+            )
+}
 
 const tabsText = [LIST_VIEW, CHART_VIEW]
 
@@ -24,8 +43,11 @@ class Home extends Component {
             tabView: tabsText[0],
         }
     }
-    componentDidMount(){
-        this.props.actions.getInitalData()
+    componentDidMount() {
+        this.props.actions.getInitalData().then(items => {
+            //会自动包裹成一个Pormise对象
+            console.log('hehe', items)
+        })
     }
     changeView = (index) => {
         this.setState({
@@ -45,85 +67,103 @@ class Home extends Component {
         this.props.actions.deleteItem(item)
     }
     render() {
-        const {data} = this.props
-        const {items, categories, currentDate} = data
+        const { data } = this.props
+        const { items, categories, currentDate, isLoading } = data
         const { tabView } = this.state
+
         const itemsWithCategory = Object.keys(items).map(id => {
             items[id].category = categories[items[id].cid]
             return items[id]
         })
+        const chartOutcomeDataByCatagory = generateChartDataByCategory(itemsWithCategory, TYPE_OUTCOME)
+        const chartIncomeDataByCatagory = generateChartDataByCategory(itemsWithCategory, TYPE_INCOME)
+        console.log(chartOutcomeDataByCatagory)
         let totalIncome = 0, totalOutcome = 0
         itemsWithCategory.forEach(item => {
-            if (item.category.type === TYPE_INCOME) {
-                totalIncome += item.price
-            } else {
+            // console.log('item.category', item.category)
+            if (item.category.type === TYPE_OUTCOME) {
                 totalOutcome += item.price
+            } else {
+                totalIncome += item.price
             }
         })
 
         return (
-           
-                            <React.Fragment>
-                                <header className="App-header">
-                                    <div className="row mb-5 justify-content-center">
-                                        <img src={logo} className="App-logo" alt="logo" />
-                                    </div>
-                                    <div className="row">
-                                        <div className="col">
-                                            <MonthPicker
-                                                year={currentDate.year}
-                                                month={currentDate.month}
-                                                onChange={this.changeDate}
-                                            />
-                                        </div>
-                                        <div className="col">
-                                            <TotalPrice income={totalIncome} outcome={totalOutcome} />
-                                        </div>
-                                    </div>
-                                </header>
-                                <div className="content-area py-3 px-3">
-                                    <Tabs activeIndex={0} onTabChange={this.changeView}>
-                                             <Tab>
-                                            <Ionicon className="rounded-circle mr-2"
-                                                fontSize="25px"
-                                                color={'#007bff'}
-                                                icon='ios-paper'
-                                            />
+
+            <React.Fragment>
+                <header className="App-header">
+                    <div className="row  justify-content-center">
+                        <h3>Fan记账</h3>
+                    </div>
+                    <div className="row">
+                        <div className="col-8">
+                            <MonthPicker
+                                year={currentDate.year}
+                                month={currentDate.month}
+                                onChange={this.changeDate}
+                            />
+                        </div>
+                        <div className="col-4 ">
+                            <TotalPrice income={totalIncome} outcome={totalOutcome} />
+                        </div>
+                    </div>
+                </header>
+                <div className="content-area py-3 px-3">
+                    {isLoading &&
+                        <Loader />
+                    }
+                    {!isLoading &&
+                        <React.Fragment>
+                            <Tabs activeIndex={0} onTabChange={this.changeView}>
+                                <Tab>
+                                    <Ionicon className="rounded-circle mr-2"
+                                        fontSize="25px"
+                                        color={'rgb(100,88,245)'}
+                                        icon='ios-paper'
+                                    />
                                                    列表模式
                                           </Tab>
-                                          <Tab>
-                                            <Ionicon className="rounded-circle mr-2"
-                                                fontSize="25px"
-                                                color={'#007bff'}
-                                                icon='ios-pie'
-                                            />
+                                <Tab>
+                                    <Ionicon className="rounded-circle mr-2"
+                                        fontSize="25px"
+                                        color={'rgb(100,88,245)'}
+                                        icon='ios-pie'
+                                    />
                                                      图表模式
                                            </Tab>
-                                    </Tabs>
-                                    {/* <ViewTab
-                        activeTab={tabView}
-                        onTabChange={this.changeView}
-                    /> */}
-                                    <CreateBtn onClick={this.createItem} />
+                            </Tabs>
+                          
+                            <CreateBtn onClick={this.createItem} />
 
-                                    {tabView === LIST_VIEW &&
-                                        <PriceList
-                                            items={itemsWithCategory}
-                                            onModifyItem={this.modifyItem}
-                                            onDeleteItem={this.deteleItem}
-                                        />
-                                    }
-                                    {
-                                        tabView === CHART_VIEW &&
-                                        <h1>图表区域</h1>
-                                    }
+                            {tabView === LIST_VIEW &&
+                                <PriceList
+                                    items={itemsWithCategory}
+                                    onModifyItem={this.modifyItem}
+                                    onDeleteItem={this.deteleItem}
+                                />
+                            }
+                            {
+                                tabView === CHART_VIEW &&
+                                <React.Fragment>
+                                    <div className="row">
+                                        <div className="col-6">
+                                <CustomPieChart title="本月支出" categoryData={chartOutcomeDataByCatagory} />
                                 </div>
-                            </React.Fragment>
-               
+                                <div className="col-6">
+                                <CustomPieChart title="本月收入" categoryData={chartIncomeDataByCatagory} />
+                                </div>
+                                </div>
+                                </React.Fragment>
+                            }
+                        </React.Fragment>
+                    }
+                </div>
+            </React.Fragment>
+
         )
     }
 }
-export default  withRouter(withContext(Home))
+export default withRouter(withContext(Home))
 
 // export const categoies = {
 //     "1": {

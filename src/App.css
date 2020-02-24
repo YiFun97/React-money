@@ -19,10 +19,15 @@ a[href="#"], a[href="#0"] /* Common patterns for the <a> element used as a butto
 }
 
 .App-header {
-  background-color: #222;
+  /* background-color: #222;
   padding: 20px;
-  color: white;
+  color: white; */
+  background-color: #c6bdf6;
+    padding: 20px;
+    color: #353434;
+    border: 3px solid rgb(100,88,245);
 }
+
 
 .App-title {
   font-size: 1.5em;
@@ -39,12 +44,48 @@ label {
   display: inline-block;
   margin-bottom: 0;
 }
-
+.pd40{
+  padding-top: 40px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.btn-secondary {
+  color: #353434;
+  background-color: #fff;
+  border-color: #b8bdc0;
+}
+.btn-pur {
+  color: #fff;
+  background-color: rgb(100,88,245);
+  border-color: rgb(100,88,245);
+  margin-bottom: 15px;
+}
+.btn-purno{
+  color: #fff;
+  background-color: rgb(100,88,245);
+  border-color: rgb(100,88,245);
+}
+.nav-item a{
 
+    color:  #495057;
+    text-decoration: none;
+    background-color: transparent;
+}
+.nav-tabs .nav-link.active {
+  color:rgb(100,88,245);
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.creat .nav-link.active {
+  color: #fff;
+  background-color: #6458FE;
+ 
+}
+.creat .nav-link {
+  border-color: #e9ecef #e9ecef #dee2e6
+}
 /* .App {
   text-align: center;
 }
