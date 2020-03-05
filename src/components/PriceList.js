@@ -6,7 +6,7 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
         <ul className="list-group list-grop-flush">
             {
                 items.map((item) => (
-                    <li className="list-group-item d-flex
+                    <li className="list-group-item row  d-flex
                         justify-content-between align-items-center"
                         key={item.id}
                     >
@@ -18,11 +18,13 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
                             />
                         </span>
                         <span className="col-5">{item.title}</span>
+                     
                         <span className="col-2 font-weight-bold">
                             {(item.category.type === 'income') ? '+' : '-'}
                             {item.price}元
                         </span>
                         <span className="col-2">{item.date}</span>
+                       
                         <div className="col-1">
                             <a
                                 role="button"
@@ -47,6 +49,7 @@ const PriceList = ({ items, onModifyItem, onDeleteItem }) => {
                                 />
                             </a>
                         </div>
+                    
                     </li>
                 ))
             }

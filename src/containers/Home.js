@@ -64,7 +64,9 @@ class Home extends Component {
         this.props.history.push('/create')
     }
     deteleItem = (item) => {
-        this.props.actions.deleteItem(item)
+        if(window.confirm(`确认删除?`)){
+            this.props.actions.deleteItem(item)
+        }
     }
     render() {
         const { data } = this.props
@@ -146,13 +148,13 @@ class Home extends Component {
                                 tabView === CHART_VIEW &&
                                 <React.Fragment>
                                     <div className="row">
-                                        <div className="col-6">
-                                <CustomPieChart title="本月支出" categoryData={chartOutcomeDataByCatagory} />
-                                </div>
-                                <div className="col-6">
-                                <CustomPieChart title="本月收入" categoryData={chartIncomeDataByCatagory} />
-                                </div>
-                                </div>
+                                        <div className="col-md-6">
+                                        <CustomPieChart title="本月支出" categoryData={chartOutcomeDataByCatagory} />
+                                    </div>
+                                   <div className="col-md-6">
+                                        <CustomPieChart title="本月收入" categoryData={chartIncomeDataByCatagory} />
+                                        </div>
+                                    </div>
                                 </React.Fragment>
                             }
                         </React.Fragment>

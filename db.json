@@ -225,15 +225,6 @@
       "cid": "2"
     },
     {
-      "title": "买麻辣22",
-      "price": 15,
-      "date": "2020-02-19",
-      "monthCategory": "2020-2",
-      "timestamp": 1582070400000,
-      "id": "_7ljoh7hr5",
-      "cid": "3"
-    },
-    {
       "title": "买oneplus7T",
       "price": 3999,
       "date": "2020-02-22",
@@ -283,6 +274,57 @@
       "timestamp": 1582156800000,
       "id": "_xvn2r2z09",
       "cid": "8"
+    },
+    {
+      "title": "买菜",
+      "price": 200,
+      "date": "2020-03-01",
+      "monthCategory": "2020-3",
+      "timestamp": 1583020800000,
+      "id": "_xl8pislpb",
+      "cid": "3"
+    },
+    {
+      "title": "买手机",
+      "price": 2999,
+      "date": "2020-03-01",
+      "monthCategory": "2020-3",
+      "timestamp": 1583020800000,
+      "id": "_ct9kaew9z",
+      "cid": "4",
+      "category": {
+        "name": "数码",
+        "iconName": "ios-phone-portrait",
+        "id": "4",
+        "type": "outcome"
+      }
+    },
+    {
+      "title": "理财",
+      "price": 277,
+      "date": "2020-03-01",
+      "monthCategory": "2020-3",
+      "timestamp": 1583020800000,
+      "id": "_wnd63bfov",
+      "cid": "12"
+    },
+    {
+      "title": "火车",
+      "price": 68,
+      "date": "2020-03-01",
+      "monthCategory": "2020-3",
+      "timestamp": 1583020800000,
+      "id": "_iprvgegar",
+      "cid": "1"
+    },
+    {
+      "title": "家教",
+      "price": 400,
+      "date": "2020-03-01",
+      "monthCategory": "2020-3",
+      "timestamp": 1583020800000,
+      "id": "_vo1jhcf6c",
+      "cid": "11"
     }
   ]
 }
